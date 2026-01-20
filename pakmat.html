@@ -1,0 +1,430 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+/* FULL PAGE BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+        url('pakmat6.jpg') center/cover no-repeat;
+    z-index: -1;
+}
+
+/* HERO SECTION */
+.menu-hero {
+    height: 70vh;
+    background: url('../images/menu-bg.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.7);
+    height: 100%;
+    padding: 80px;
+}
+
+.overlay h1 {
+    font-size: 72px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* CATEGORY BUTTONS */
+.category {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.category button {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.category button.active {
+    background: #ff9f00;
+    color: #000;
+}
+
+/* MENU LIST */
+.menu-list {
+    padding: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 30px;
+}
+
+/* MENU CARD */
+.menu-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-info {
+    padding: 20px;
+}
+
+.menu-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.menu-info p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 12px;
+}
+
+.menu-info span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff9f00;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+}
+.add-cart {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background: #ff9f00;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #000;
+    transition: 0.3s;
+}
+
+.add-cart:hover {
+    background: #ffc44d;
+}
+.place-order {
+    background: rgba(255,255,255,0.08);
+    border: 2px dashed #ff9f00;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+}
+
+.place-order h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.place-order p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.place-order a {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #ff9f00;
+    color: #000;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.back-web {
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+.back-web a {
+    display: inline-block;
+    padding: 14px 36px;
+    border: 2px solid #ff9f00;
+    color: #ff9f00;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 40px;
+    transition: 0.3s ease;
+}
+
+.back-web a:hover {
+    background: #ff9f00;
+    color: #000;
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pak Mat Western | Menu</title>
+<link rel="stylesheet" href="css/pakmat-menu.css">
+</head>
+
+<body>
+
+<!-- HERO MENU -->
+<section class="menu-hero">
+    <div class="overlay">
+        <h1>MENU</h1>
+
+        <!-- CATEGORY FILTER -->
+        <div class="category">
+    <button class="active" onclick="filterMenu('all', this)">ALL</button>
+    <button onclick="filterMenu('steak', this)">STEAK</button>
+    <button onclick="filterMenu('chicken', this)">CHICKEN</button>
+    <button onclick="filterMenu('lamb', this)">LAMB</button>
+    <button onclick="filterMenu('sides', this)">SIDES</button>
+</div>
+    </div>
+</section>
+
+<!-- MENU LIST -->
+<section class="menu-list">
+
+   <section class="menu-list">
+
+<!-- STEAK (5) -->
+<div class="menu-card" data-category="steak">
+    <img src="grilled beef steak">
+    <div class="menu-info">
+        <h3>Grilled Beef Steak</h3>
+        <p>Black pepper sauce</p>
+        <span>RM 28.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="steak">
+    <img src="sirloin">
+    <div class="menu-info">
+        <h3>Sirloin Steak</h3>
+        <p>Juicy & tender cut</p>
+        <span>RM 34.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="steak">
+    <img src="t-bone">
+    <div class="menu-info">
+        <h3>T-Bone Steak</h3>
+        <p>Classic western style</p>
+        <span>RM 39.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="steak">
+    <img src="ribeye steak">
+    <div class="menu-info">
+        <h3>Ribeye Steak</h3>
+        <p>Rich & flavourful</p>
+        <span>RM 42.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="steak">
+    <img src="steak platter">
+    <div class="menu-info">
+        <h3>Steak Platter</h3>
+        <p>Perfect for sharing</p>
+        <span>RM 45.90</span>
+    </div>
+</div>
+
+<!-- CHICKEN (5) -->
+<div class="menu-card" data-category="chicken">
+    <img src="chicken chop">
+    <div class="menu-info">
+        <h3>Chicken Chop</h3>
+        <p>Mushroom sauce</p>
+        <span>RM 18.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="chicken">
+    <img src="grilled chicken">
+    <div class="menu-info">
+        <h3>Grilled Chicken</h3>
+        <p>Herb marinated</p>
+        <span>RM 20.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="chicken">
+    <img src="chicken steak">
+    <div class="menu-info">
+        <h3>Chicken Steak</h3>
+        <p>Pepper sauce</p>
+        <span>RM 22.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="chicken">
+    <img src="chicken platter">
+    <div class="menu-info">
+        <h3>Chicken Platter</h3>
+        <p>Complete meal</p>
+        <span>RM 25.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="chicken">
+    <img src="bbq chicken">
+    <div class="menu-info">
+        <h3>BBQ Chicken</h3>
+        <p>Smoky BBQ sauce</p>
+        <span>RM 23.90</span>
+    </div>
+</div>
+
+<!-- LAMB (5) -->
+<div class="menu-card" data-category="lamb">
+    <img src="lamb chop">
+    <div class="menu-info">
+        <h3>Lamb Chop</h3>
+        <p>Classic western</p>
+        <span>RM 32.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="lamb">
+    <img src="bbq lamb">
+    <div class="menu-info">
+        <h3>BBQ Lamb</h3>
+        <p>Sweet BBQ glaze</p>
+        <span>RM 34.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="lamb">
+    <img src="lamb steak">
+    <div class="menu-info">
+        <h3>Lamb Steak</h3>
+        <p>Grilled perfection</p>
+        <span>RM 36.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="lamb">
+    <img src="lamb platter">
+    <div class="menu-info">
+        <h3>Lamb Platter</h3>
+        <p>Chef’s choice</p>
+        <span>RM 39.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="lamb">
+    <img src="herbs lamb chop">
+    <div class="menu-info">
+        <h3>Herb Lamb Chop</h3>
+        <p>Rosemary infused</p>
+        <span>RM 35.90</span>
+    </div>
+</div>
+
+<!-- SIDES (5) -->
+<div class="menu-card" data-category="sides">
+    <img src="french fries">
+    <div class="menu-info">
+        <h3>French Fries</h3>
+        <p>Crispy & golden</p>
+        <span>RM 6.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="sides">
+    <img src="mashed potato">
+    <div class="menu-info">
+        <h3>Mashed Potato</h3>
+        <p>Creamy texture</p>
+        <span>RM 5.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="sides">
+    <img src="coleslaw">
+    <div class="menu-info">
+        <h3>Coleslaw</h3>
+        <p>Fresh & crunchy</p>
+        <span>RM 4.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="sides">
+    <img src="onion rings">
+    <div class="menu-info">
+        <h3>Onion Rings</h3>
+        <p>Deep fried</p>
+        <span>RM 6.90</span>
+    </div>
+</div>
+
+<div class="menu-card" data-category="sides">
+    <img src="garlic bread">
+    <div class="menu-info">
+        <h3>Garlic Bread</h3>
+        <p>Buttery & crispy</p>
+        <span>RM 5.90</span>
+    </div>
+</div>
+<div class="menu-card place-order">
+    <h2>Is it interesting?</h2>
+    <p>Let's check it out</p>
+    <a href="https://pakmatwestern.info/" target="_blank">
+        Place Order
+    </a>
+</div>
+<div class="back-web">
+    <a href="index.html">← Back to F&B Brands</a>
+</div>
+
+</section>
+
+<script>
+function filterMenu(category, button) {
+    const cards = document.querySelectorAll('.menu-card');
+    const buttons = document.querySelectorAll('.category button');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+
+</body>
+</html>
